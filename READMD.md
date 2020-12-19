@@ -1,1 +1,0 @@
-cloning test like twitter (study)
