@@ -5,6 +5,7 @@ import Post from "components/Post";
 const Home = ({ userObj }) => {
     const [post, setPost] = useState("");
     const [posts, setPosts] = useState([]);
+    const [attachment, setAttachment] = useState();
     useEffect (() => {
         dbService.collection("posts").onSnapshot(snapshot => {
             const postArray = snapshot.docs.map(doc => ({
@@ -36,16 +37,26 @@ const Home = ({ userObj }) => {
         const theFile = files[0];
         const reader = new FileReader();
         reader.onloadend = (finishedEvent) => {
-            console.log(finishedEvent);
+            const {
+                currentTarget: { result },
+            } = finishedEvent;
+            setAttachment(result);
         };
         reader.readAsDataURL(theFile);
     };
+    const onClearAttachment = () => setAttachment(null);
     return (
         <div>
             <form onSubmit={onSubmit}>
                 <input value={post} onChange={onChange} type="text" placeholder="What is your plan on Today?" maxLength={120} />
                 <input type="file" accept="image/*" onChange={onFileChange} />
                 <input type="submit" value="Post" />
+                {attachment && (
+                    <div>
+                        <img src={attachment} width="50px" height="50px" />
+                        <button onClick={onClearAttachment}>Clear</button>
+                    </div>
+                )}
             </form>
             <div>
                 {posts.map((post) => (
