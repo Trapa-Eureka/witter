@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 
 const Post = ({ postObj, isOwner }) => {
     const [editing, setEditing] = useState(false);
@@ -9,6 +9,7 @@ const Post = ({ postObj, isOwner }) => {
         console.log(ok);
         if (ok) {
             await dbService.doc(`posts/${postObj.id}`).delete();
+            await storageService.refFromURL(postObj.attachmentUrl).delete();
         }
     };
     const toggleEditing = () => setEditing((prev) => !prev);
