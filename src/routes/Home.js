@@ -18,15 +18,21 @@ const Home = ({ userObj }) => {
     }, []);
     const onSubmit = async(event) => {
         event.preventDefault();
-        const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-        const response = await fileRef.putString(attachment, "data_url");
-        console.log(response);
-        /* await dbService.collection("posts").add({
+        let attachmentUrl = "";
+        if(attachment != "") {
+            const attachmentRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+            const response = await attachmentRef.putString(attachment, "data_url");
+            attachmentUrl = await response.ref.getDownloadURL();
+        }
+        const postObj = {
             text: post,
             createAt: Date.now(),
             creatorId: userObj.uid,
-        });
-        setPost(""); */
+            attachmentUrl,
+        };
+        await dbService.collection("posts").add(postObj);
+        setPost("");
+        setAttachment("");
     };
     const onChange = (event) => {
         const { 
