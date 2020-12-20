@@ -29,10 +29,22 @@ const Home = ({ userObj }) => {
         } = event;
         setPost(value);
     };
+    const onFileChange = (event) => {
+        const {
+            target: { files },
+        } = event;
+        const theFile = files[0];
+        const reader = new FileReader();
+        reader.onloadend = (finishedEvent) => {
+            console.log(finishedEvent);
+        };
+        reader.readAsDataURL(theFile);
+    };
     return (
         <div>
             <form onSubmit={onSubmit}>
                 <input value={post} onChange={onChange} type="text" placeholder="What is your plan on Today?" maxLength={120} />
+                <input type="file" accept="image/*" onChange={onFileChange} />
                 <input type="submit" value="Post" />
             </form>
             <div>
