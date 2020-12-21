@@ -6,7 +6,7 @@ import Post from "components/Post";
 const Home = ({ userObj }) => {
     const [post, setPost] = useState("");
     const [posts, setPosts] = useState([]);
-    const [attachment, setAttachment] = useState();
+    const [attachment, setAttachment] = useState("");
     useEffect (() => {
         dbService.collection("posts").onSnapshot(snapshot => {
             const postArray = snapshot.docs.map(doc => ({
