@@ -37,7 +37,7 @@ const Post = ({ postObj, isOwner }) => {
             ) : (
                 <>
                     <h4>{postObj.text}</h4>
-                    {postObj.attachmentUrl && <img src={postObj.attachmentUrl} width="50px" height="50px" />}
+                    {postObj.attachmentUrl && <img src={postObj.attachmentUrl} width="50px" height="50px" alt="" />}
                     {isOwner && (
                         <>
                             <button onClick={onDeleteClick}>Delete Post</button>
