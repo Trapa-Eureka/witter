@@ -15,7 +15,7 @@ const Home = ({ userObj }) => {
         });
     }, []);
     return (
-        <div>
+        <div className="container">
            <PostsContainer userObj={userObj} /> 
             <div>
                 {posts.map((post) => (
