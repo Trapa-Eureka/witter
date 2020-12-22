@@ -70,7 +70,7 @@ const PostsContainer = ({ userObj }) => {
                 </div>
             )}
         </form>
-    )
+    );
 };
 
 export default PostsContainer;

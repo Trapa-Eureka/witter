@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    .profileForm {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+        padding-bottom: 30px;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        .formInput {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid #000;
+            text-align: center;
+            background-color: #fff;
+            color: #000;
+        }
+        .formBtn {
+            cursor: pointer;
+            width: 100%;
+            padding: 7px 20px;
+            text-align: center;
+            color: #fff;
+            border-radius: 20px;
+            background-color: #f65858;
+        }
+    }
+    .formBtn {
+        cursor: pointer;
+        width: 100%;
+        padding: 7px 20px;
+        text-align: center;
+        color: #fff;
+        border-radius: 20px;
+        background-color: #f65858;
+    }
+    .logout {
+        margin-top: 50px;
+    }
+    .cancelBtn {
+        cursor: pointer;
+        background-color: tomato;
+    }
+}

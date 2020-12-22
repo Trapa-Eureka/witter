@@ -1,0 +1,47 @@
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.authBtns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    .authBtn {
+        cursor: pointer;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 0px;
+        font-size: 12px;
+        text-align: center;
+        width: 150px;
+        background: #fff;
+        cursor: pointer;
+        span {
+            position: relative;
+            margin-right: 8px;
+            top: -1px;
+        }
+        .icon__g {
+            width: 17px;
+            height: 17px;
+        }
+        .icon__git {
+            width: 19px;
+            height: 19px;
+        }
+    }
+}
+
+.authBtn:last-child span {
+    top: -2.7px;
+}
+
+.svg-inline--fa.fa-w-16.meetup {
+    width: 70px;
+    height: 70px;
+}

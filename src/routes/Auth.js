@@ -18,14 +18,16 @@ const Auth = () => {
     };
     return (
         <div className="authContainer">
-        <FontAwesomeIcon icon={faMeetup} color={"#f65858"} size="3x" />
+        <FontAwesomeIcon icon={faMeetup} color={"#fff"} className="meetup" />
             <AuthForm />
             <div className="authBtns">
                 <button onClick={onSocialClick} name="google" className="authBtn">
-                    Continue with Google<FontAwesomeIcon icon={faGoogle} />
+                    <span>Continue with</span>
+                    <FontAwesomeIcon icon={faGoogle} className="icon__g" />
                 </button>
                 <button onClick={onSocialClick} name="github" className="authBtn">
-                    Continue with Github<FontAwesomeIcon icon={faGithub} />
+                    <span>Continue with</span>
+                    <FontAwesomeIcon icon={faGithub} className="icon__git" />
                 </button>
             </div>
         </div>
